@@ -1,33 +1,44 @@
-const inquirer = require('inquirer')
+// TODO: Include packages needed for this application
+const inquirer = require('inquirer');
 const fs = require('fs')
 
-const generateHTML = (answers) =>
-`<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-    <h1>Welcome to project ${answers.title}</h1>
-</body>
-</html>`
-
-inquirer.prompt([
+// TODO: Create an array of questions for user input
+const questions = [
     {
-        type: 'input',
-        name: 'title',
-        message: 'What is the name of your project?'
+        message: "What is the name of the project?",
+        name: "title"
+    },
+    {
+        message: 'Please provide a description of your project',
+        name: 'description'
+    },
+    {
+        message: 'Please provide a table of contents',
+        name: 'contents'
+    },
+    {
+        message: 'How will this project be used?',
+        name: 'usage'
+    },
+    {
+        message: 'Please provide the license',
+        name: 'license'
+    },
+    {
+        message: 'Who are the contributors?',
+        name: 'contributors'
+    },
+    {
+        message: 'Any questions?',
+        name: 'questions'
     }
+];
 
-])
-.then((answers) => {
-    const htmlpagecontent = generateHTML(answers);
+// TODO: Create a function to write README file
+function writeToFile(fileName, data) {}
 
-    fs.writeFile('index.html', htmlpagecontent, (err) =>
-        err ? console.log(err) : console.log('Yay you created index.html')
-    );
-});
+// TODO: Create a function to initialize app
+function init() {}
 
-
+// Function call to initialize app
+init();

@@ -1,44 +1,74 @@
 // TODO: Include packages needed for this application
+const fs = require('fs');
+const util = require("util");
 const inquirer = require('inquirer');
-const fs = require('fs')
+const generateMarkdown = require("./utils/generateMarkdown");
+const writeFile = util.promisify(fs.writeFile);
+
+
 
 // TODO: Create an array of questions for user input
-const questions = [
-    {
-        message: "What is the name of the project?",
-        name: "title"
-    },
-    {
-        message: 'Please provide a description of your project',
-        name: 'description'
-    },
-    {
-        message: 'Please provide a table of contents',
-        name: 'contents'
-    },
-    {
-        message: 'How will this project be used?',
-        name: 'usage'
-    },
-    {
-        message: 'Please provide the license',
-        name: 'license'
-    },
-    {
-        message: 'Who are the contributors?',
-        name: 'contributors'
-    },
-    {
-        message: 'Any questions?',
-        name: 'questions'
+function promptUser() {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            message: "What is the name of the project?",
+            name: "title"
+        },
+        {
+            type: 'input',
+            message: 'Please provide a description of your project',
+            name: 'description'
+        },
+        {
+            type: 'input',
+            message: 'What is the installation process?',
+            name: 'installation'
+        },
+        {
+            type: 'input',
+            message: 'How will this project be used?',
+            name: 'usage'
+        },
+        {
+            type: 'list',
+            message: 'What license is needed for this project?',
+            choices: ['NPM', 'GNU', 'Apache'],
+            name: 'license'
+        },
+        {
+            type: 'input',
+            message: 'What is the test process for this project?',
+            name: 'test'
+        },
+        {
+            type: 'input',
+            message: 'Who are the contributors?',
+            name: 'contributors'
+        },
+        {
+            type: 'input',
+            message: 'What is your Github profile?',
+            name: 'profile'
+        },
+        {
+            type: 'input',
+            message: 'What is your email address?',
+            name: 'email'
+        }
+    ])
+}
+
+async function init() {
+    try {
+        // Ask user questions and generate responses
+        const data = await promptUser();
+        const generatepageContent = generateMarkdown(data);
+        await writeFile('README.md', generatepageContent);
+        console.log('You made your README.md');
+    }   catch(err) {
+        console.log(err);
     }
-];
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
+  }
+  
+  init();

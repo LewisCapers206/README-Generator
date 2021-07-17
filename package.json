@@ -1,25 +1,14 @@
 {
-  "name": "README-Generator",
+  "name": "static-site",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "run": "nodeindex.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LewisCapers206/README-Generator.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LewisCapers206/README-Generator/issues"
-  },
-  "homepage": "https://github.com/LewisCapers206/README-Generator#readme",
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "inquirer": "^8.1.2"
+    "inquirer": "^6.5.2"
   }
 }

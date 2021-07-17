@@ -7,6 +7,6 @@ This assignment was challenging enough, I had to double check my functions and d
 
 I did really enjoy it though, seeing it come together makes the work worth it.
 
-[my-pictures](images/Screenshot(37).png)
+![my-pictures](images/Screenshot(37).png)
 
 [Walkthrough-Video](https://drive.google.com/file/d/1Ql40cHAypNa9P2gYZn1Tzy78eyRHiKig/view)

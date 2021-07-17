@@ -60,7 +60,7 @@ async function init() {
     try {
         const data = await promptUser();
         const generatepageContent = generateMarkdown(data);
-        await writeFile('README.md', generatepageContent);
+        await writeFile('testREADME.md', generatepageContent);
         console.log('You made your README.md');
     }   catch(err) {
         console.log(err);

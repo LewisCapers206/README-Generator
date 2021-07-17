@@ -8,7 +8,7 @@ function generateReadme(data) {
    ![badge](https://img.shields.io/badge/license-${data.license}-brightgreen)
    <br />
    This application is covered by the ${data.license} license.
-  
+
   ## Table of Contents
   - [Description](#description)
   - [Installation](#installation)
